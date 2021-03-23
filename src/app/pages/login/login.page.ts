@@ -79,7 +79,7 @@ export class LoginPage implements OnInit {
       // Ele retorna o usuario autenticado
       await this.authServices.register(this.userRegister);
     } catch(error) {
-      // Pegando erro
+      // Tratando erros
       let message: string;
       switch (error.code) {
         case 'auth/invalid-email':

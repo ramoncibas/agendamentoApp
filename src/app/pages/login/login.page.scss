@@ -8,19 +8,24 @@
 
     z-index: 2;
 
-    &.top {        
+    &.top  {        
         top: 5%;
 
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
         img {
-            margin-left: 35%;
-        
-            width: 30%;
-            height: 30%;
+            width: 40%;
+            height: 40%;
+            
+            margin-bottom: 5%;
         }
     }
 
     &.bottom {
-        bottom: 30%;
+        bottom: 15%;
 
         span {    
             color: #c5c5c57e;
@@ -31,10 +36,11 @@
 ion-slides {
     height: 100%;
 
-    .slide-inner {
+    .slide-inner {      
         width: 75%;
+        margin-top: 20%;
 
-        background-color: #2467be;
+        background-color: var(--ion-color-primary);
         
         color: #fff;
         border-radius: 10px;
@@ -68,6 +74,7 @@ ion-slides {
         height: 100px;        
         background-image: url('/assets/img/background-login-img.png');
         background-size: cover;
+        background-repeat: no-repeat;
 
         transition: all 0.5s;
     }    
