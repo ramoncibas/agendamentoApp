@@ -1,9 +1,79 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>home</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
+  <div class="card-background"></div>
+  <div class="user-card ion-padding ion-margin">
+    <div class="about-user">
+      <ion-avatar>
+        <img
+          src="https://images.unsplash.com/photo-1543486958-d783bfbf7f8e?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Mnx8c2VsZmllfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=60" />
+      </ion-avatar>
+      <div class="user-information">
+        <ion-label>Ramon Cibas</ion-label>
+        <span>Nº Cartão: DS213DJKH21</span>
 
+        <ion-button (click)="onClick()" fill="clear">
+          <ion-icon slot="icon-only" name="arrow-forward"></ion-icon>
+        </ion-button>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <ion-grid fixed>
+      <ion-row>
+
+        <ion-col size="6" (click)="myHealth()">
+          <div class="health">
+            <img src="/assets/icon/health.svg">
+            <ion-label>Minha Saúde</ion-label>
+            <span>Seu histórico de saúde</span>
+          </div>
+        </ion-col>
+
+        <ion-col size="6" class="border-col" (click)="searchHospital()">
+          <div class="health">
+            <img src="/assets/icon/marker-hospital.svg">
+            <ion-label>Serviços de Saúde</ion-label>
+            <span>Localize um próximo a você</span>
+          </div>
+        </ion-col>
+
+        <ion-col size="6">
+          <div class="health" (click)="buyMedicines()">
+            <img src="/assets/icon/pills.svg">
+            <ion-label>Medicamentos</ion-label>
+            <span>Aqui tem Farmacias Populares</span>
+          </div>
+        </ion-col>
+
+        <ion-col size="6" class="border-col" (click)="mkAppointment()">
+          <div class="health">
+            <img src="/assets/icon/hospital.svg">
+            <ion-label>Marcar uma consulta</ion-label>
+            <span>Faça uma consulta com preço popular</span>            
+          </div>
+        </ion-col>
+
+        <ion-col size="6">
+          <div class="health" (click)="service24hr()">
+            <img src="/assets/icon/sac.svg">
+            <ion-label>Ouvidoria 24hrs</ion-label>
+            <span>Entrar em contato</span>
+          </div>
+        </ion-col>
+
+        <ion-col size="6" class="border-col" (click)="myProfile()">
+          <div class="health">
+            <img src="/assets/icon/id-card.svg">
+            <ion-label>Acessar meu Cartão</ion-label>
+            <span>Veja suas informações pessoais</span>
+          </div>
+        </ion-col>
+
+
+      </ion-row>
+    </ion-grid>
+  </div>
+
+
+  <!-- Adicionar tabs com alguns menus -->
 </ion-content>
