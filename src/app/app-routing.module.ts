@@ -6,16 +6,28 @@ import { LoginGuard } from './guards/login.guard';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'login',
-    pathMatch: 'full'
+    redirectTo: 'splash-screen',
+    pathMatch: 'full',
   },
   {
     path: 'home',
-    loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule), canActivate: [AuthGuard]
+    loadChildren: () => import('./pages/home/home.module')
+      .then( m => m.HomePageModule), canActivate: [AuthGuard]
   },
   {
     path: 'login',
-    loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule), canActivate: [LoginGuard]
+    loadChildren: () => import('./pages/login/login.module')
+      .then( m => m.LoginPageModule), canActivate: [LoginGuard]
+  },
+  {
+    path: 'splash-screen',
+    loadChildren: () => import('./pages/splash-screen/splash-screen.module')
+      .then( m => m.SplashScreenPageModule)
+  },
+  {
+    path: 'appointment',
+    loadChildren: () => import('./pages/medical-appointment/medical-appointment.module')
+      .then( m => m.MedicalAppointmentPageModule), canActivate: [AuthGuard]
   },
 ];
 
