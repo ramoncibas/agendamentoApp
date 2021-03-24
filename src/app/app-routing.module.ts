@@ -29,6 +29,16 @@ const routes: Routes = [
     loadChildren: () => import('./pages/medical-appointment/medical-appointment.module')
       .then( m => m.MedicalAppointmentPageModule), canActivate: [AuthGuard]
   },
+  {
+    path: 'make-appointment',
+    loadChildren: () => import('./pages/make-an-appointment/make-an-appointment.module')
+      .then( m => m.MakeAnAppointmentPageModule), canActivate: [AuthGuard]
+  },
+  {
+    path: 'make-appointment/:id',
+    loadChildren: () => import('./pages/make-an-appointment/make-an-appointment.module')
+      .then( m => m.MakeAnAppointmentPageModule), canActivate: [AuthGuard]
+  },
 ];
 
 @NgModule({
