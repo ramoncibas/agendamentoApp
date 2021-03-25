@@ -30,6 +30,8 @@
             flex-direction: column;
 
             margin: 5% 0;
+            
+            color: #fff;
 
             ion-label {
                 text-transform: uppercase;
@@ -74,7 +76,7 @@
             width: 50px;
             height: 50px;
 
-            margin: 10px 0;
+            margin: 10px 0;            
         }
 
         ion-label {
@@ -82,9 +84,8 @@
         }
 
         span {
-            font-size: 8pt;
-            color: #cecece;
-
+            font-size: 8pt;            
+            color: var(--ion-color-dark-tint);
             margin-top: 5px;
         }
     }
