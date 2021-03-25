@@ -12,39 +12,48 @@ const routes: Routes = [
   {
     path: 'home',
     loadChildren: () => import('./pages/home/home.module')
-      .then( m => m.HomePageModule), canActivate: [AuthGuard]
+      .then((m) => m.HomePageModule), canActivate: [AuthGuard],
   },
   {
     path: 'login',
     loadChildren: () => import('./pages/login/login.module')
-      .then( m => m.LoginPageModule), canActivate: [LoginGuard]
+      .then((m) => m.LoginPageModule), canActivate: [LoginGuard],
   },
   {
     path: 'splash-screen',
     loadChildren: () => import('./pages/splash-screen/splash-screen.module')
-      .then( m => m.SplashScreenPageModule)
+      .then((m) => m.SplashScreenPageModule), canActivate: [LoginGuard]
   },
   {
     path: 'appointment',
     loadChildren: () => import('./pages/medical-appointment/medical-appointment.module')
-      .then( m => m.MedicalAppointmentPageModule), canActivate: [AuthGuard]
+      .then((m) => m.MedicalAppointmentPageModule), canActivate: [AuthGuard],
   },
   {
     path: 'make-appointment',
     loadChildren: () => import('./pages/make-an-appointment/make-an-appointment.module')
-      .then( m => m.MakeAnAppointmentPageModule), canActivate: [AuthGuard]
+      .then((m) => m.MakeAnAppointmentPageModule), canActivate: [AuthGuard],
   },
   {
     path: 'make-appointment/:id',
     loadChildren: () => import('./pages/make-an-appointment/make-an-appointment.module')
-      .then( m => m.MakeAnAppointmentPageModule), canActivate: [AuthGuard]
+      .then((m) => m.MakeAnAppointmentPageModule), canActivate: [AuthGuard],
+  },
+  {
+    path: 'my-appointment',
+    loadChildren: () => import('./pages/my-appointment/my-appointment.module')
+      .then((m) => m.MyAppointmentPageModule), canActivate: [AuthGuard],
+  },
+  {
+    path: 'modal',
+    loadChildren: () => import('./pages/modals/myappointment/myappointment.module').then( m => m.MyAppointmentModalPageModule)
   },
 ];
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
+    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules }),
   ],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
