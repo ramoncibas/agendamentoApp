@@ -1,0 +1,31 @@
+<ion-content>
+  <div class="appointment-background">
+    <ion-button [routerLink]="['/home']" fill="clear">
+      <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+    </ion-button>
+
+    <div class="appointment-type">
+      <img src="/assets/icon/health.svg">
+      <h4>Seu histórico de saúde</h4>
+    </div>
+  </div>
+
+  <div class="container">
+    <ion-list *ngIf="!appointments.length">
+      <ion-item class="ion-text-center" lines="none">
+        <ion-label color="medium">Nenhuma consulta registrada...</ion-label>
+      </ion-item>
+    </ion-list>
+
+    <ion-list class="appointments">
+      <ion-item *ngFor="let appointment of appointments" lines="none" (click)="presentModal()">
+        <p>{{ appointment.type }}</p>
+        <p slot="end">{{ appointment.dayAt | date: 'short' }}</p>
+      </ion-item>
+    </ion-list>
+  </div>
+
+  <ion-button (click)="onClick()" expand="full" color="danger" class="deleteHistory">
+    Limpar Historico
+  </ion-button>
+</ion-content>
