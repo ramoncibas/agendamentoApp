@@ -9,4 +9,5 @@ export interface Appointment {
     healthInsurance?: boolean;
     price?: string;
     createdAt?: number;
+    dayAt?: number;
 }
