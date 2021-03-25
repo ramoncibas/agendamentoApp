@@ -21,7 +21,7 @@
     <ion-grid fixed>
       <ion-row>
 
-        <ion-col size="6" (click)="myHealth()">
+        <ion-col size="6" [routerLink]="['/my-appointment']">
           <div class="health">
             <img src="/assets/icon/health.svg">
             <ion-label>Minha Saúde</ion-label>
@@ -29,7 +29,7 @@
           </div>
         </ion-col>
 
-        <ion-col size="6" class="border-col" (click)="searchHospital()">
+        <ion-col size="6" class="border-col" [routerLink]="['/search-hospital']">
           <div class="health">
             <img src="/assets/icon/marker-hospital.svg">
             <ion-label>Serviços de Saúde</ion-label>
@@ -38,14 +38,14 @@
         </ion-col>
 
         <ion-col size="6">
-          <div class="health" (click)="buyMedicines()">
+          <div class="health" [routerLink]="['/buy-medicines']">
             <img src="/assets/icon/pills.svg">
             <ion-label>Medicamentos</ion-label>
             <span>Aqui tem Farmacias Populares</span>
           </div>
         </ion-col>
 
-        <ion-col size="6" class="border-col" (click)="mkAppointment()">
+        <ion-col size="6" class="border-col" [routerLink]="['/appointment']">
           <div class="health">
             <img src="/assets/icon/hospital.svg">
             <ion-label>Marcar uma consulta</ion-label>
@@ -54,14 +54,14 @@
         </ion-col>
 
         <ion-col size="6">
-          <div class="health" (click)="service24hr()">
+          <div class="health" [routerLink]="['/service24hr']">
             <img src="/assets/icon/sac.svg">
             <ion-label>Ouvidoria 24hrs</ion-label>
             <span>Entrar em contato</span>
           </div>
         </ion-col>
 
-        <ion-col size="6" class="border-col" (click)="myProfile()">
+        <ion-col size="6" class="border-col" [routerLink]="['/my-profile-card']">
           <div class="health">
             <img src="/assets/icon/id-card.svg">
             <ion-label>Acessar meu Cartão</ion-label>
