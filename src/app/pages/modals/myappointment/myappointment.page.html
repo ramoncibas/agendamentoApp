@@ -1,0 +1,38 @@
+<ion-content>
+  <div class="myappointment-bg">
+    <ion-button (click)="closeModal()" fill="clear">
+      <ion-icon slot="icon-only" name="close"></ion-icon>
+    </ion-button>
+
+    <div class="myappointment">
+      <img src="/assets/img/doctor-avatar.png">
+      <h4>Informações da Consulta</h4>
+    </div>
+  </div>
+
+  <div class="container">
+    <ion-list>
+      <div class="appointment">
+        <h2 class="ion-margin">Informações da Consulta</h2>
+        <ion-item>
+          <ion-item>
+            <ion-avatar slot="start">
+              <img [src]="appointments.doctorPic" />
+            </ion-avatar>
+            <ion-label>{{ appointments.doctor }}</ion-label>
+            <span>{{ appointments.doctorSpeciality }}</span>           
+          </ion-item>
+        </ion-item>
+        <ion-item>
+          <ion-label>Marcado para: {{ appointments.dayAt | date: 'short' }}</ion-label>
+        </ion-item>
+
+      </div>
+
+    </ion-list>
+  </div>
+
+  <ion-button (click)="onClick()" expand="full" color="danger" class="editAppointment">
+    Editar
+  </ion-button>
+</ion-content>
