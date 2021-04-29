@@ -55,7 +55,20 @@
   z-index: 5;
 }
 
-.deleteHistory {
+ion-item.appointment-menu { 
+  margin-top: 10px;
+
+  ion-icon,
+  h3 {
+    color: var(--ion-color-primary);
+  }
+
+  h6 {
+    color: var(--ion-color-dark-tint);
+  }
+}
+
+ion-button.deleteHistory {
   position: fixed;
   right: 0;
   left: 0;

@@ -10,15 +10,26 @@ import { MyAppointmentModalPage } from '../modals/myappointment/myappointment.pa
 export class MyAppointmentPage implements OnInit {
   private appointments = [
     {
-      type: 'Consulta de rotina',
-      doctor: 'DrSilva',
-      dayAt: new Date()
+      title: 'Meus Medicamentos',
+      description: 'Medicamentos cadastrados e comprados',
+      icon: 'person'      
     },
     {
-      type: 'Consulta de rotina',
-      doctor: 'DrSilva',
-      dayAt: new Date()
+      title: 'Minhas Vacinas',
+      description: 'Carteirinha de vacinação',
+      icon: 'eyedrop'      
     },
+    {
+      title: 'Meus Exames',
+      description: 'Acompanhamento de exames realizados',
+      icon: 'id-card'      
+    },
+    {
+      title: 'Meus Profissionais',
+      description: 'Veja sua lista de profissionais já consultado',
+      icon: 'person-circle'      
+    },
+    
   ]
 
   constructor(public modalControll: ModalController) { }
@@ -34,5 +45,4 @@ export class MyAppointmentPage implements OnInit {
     });
     return await modal.present();
   }
-
 }

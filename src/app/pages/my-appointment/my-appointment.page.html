@@ -18,9 +18,12 @@
     </ion-list>
 
     <ion-list class="appointments">
-      <ion-item *ngFor="let appointment of appointments" lines="none" (click)="presentModal()">
-        <p>{{ appointment.type }}</p>
-        <p slot="end">{{ appointment.dayAt | date: 'short' }}</p>
+      <ion-item *ngFor="let appointment of appointments" (click)="presentModal()" class="appointment-menu">
+          <ion-icon slot="start" name={{appointment.icon}}></ion-icon>
+          <ion-label>
+            <h3>{{ appointment.title }}</h3>
+            <h6>{{ appointment.description }}</h6>
+          </ion-label>
       </ion-item>
     </ion-list>
   </div>
