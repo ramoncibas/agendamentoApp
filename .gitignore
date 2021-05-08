@@ -33,4 +33,6 @@ npm-debug.log*
 /resources
 src/environments/environment.ts
 src/assets/img/waves.svg
+/android
+/ios
 /ModeloApp
