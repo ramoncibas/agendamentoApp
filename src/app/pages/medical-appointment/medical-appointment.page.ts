@@ -20,6 +20,7 @@ export class MedicalAppointmentPage implements OnInit {
       description: 'Consulta de rotina.',
       createdAt: new Date(),
       price: null,
+      timeAvaliable: 'Horarios disponiveis: 12h - 16h'
     },
   ];
   

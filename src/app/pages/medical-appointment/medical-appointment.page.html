@@ -1,6 +1,6 @@
 <ion-content>
 
-  <div class="appointment-bg">
+  <div class="appointment-background">
     <ion-button [routerLink]="['/home']" fill="clear">
       <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
     </ion-button>
@@ -34,10 +34,10 @@
     </ion-item>
   </ion-list>
 
-  <div class="content">
-    <ion-searchbar placeholder="Busque por um especialista" inputmode="decimal" type="decimal" (ionChange)="onSearchChange($event)" [debounce]="250" showCancelButton="always"></ion-searchbar>
-
+  <div class="container">  
     <ion-list>
+      <ion-searchbar placeholder="Busque por um especialista" inputmode="decimal" type="decimal" (ionChange)="onSearchChange($event)" [debounce]="250" showCancelButton="always"></ion-searchbar>
+
       <ion-item *ngFor="let appointment of appointments">
         <ion-avatar slot="start">
           <img [src]="appointment.picture">
@@ -46,8 +46,9 @@
         <ion-label>
           {{ appointment.name }}
           <p>{{ appointment.specialty }}</p>
-          <p>{{ appointment.description }}</p>
-          <p>{{ appointment.createdAt | date: 'short' }}</p>
+          <p>{{ appointment.timeAvaliable }}</p>
+          <!-- <p>{{ appointment.description }}</p> -->
+          <!-- <p>{{ appointment.createdAt | date: 'short' }}</p> -->
         </ion-label>
 
         <ion-note *ngIf="appointment.price" color="primary" slot="end">
