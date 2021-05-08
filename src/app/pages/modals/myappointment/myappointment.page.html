@@ -1,5 +1,5 @@
 <ion-content>
-  <div class="myappointment-bg">
+  <div class="myappointment-background">
     <ion-button (click)="closeModal()" fill="clear">
       <ion-icon slot="icon-only" name="close"></ion-icon>
     </ion-button>
@@ -12,8 +12,6 @@
 
   <div class="container">
     <ion-list>
-      <div class="appointment">
-        <h2 class="ion-margin">Informações da Consulta</h2>
         <ion-item>
           <ion-item>
             <ion-avatar slot="start">
@@ -26,9 +24,6 @@
         <ion-item>
           <ion-label>Marcado para: {{ appointments.dayAt | date: 'short' }}</ion-label>
         </ion-item>
-
-      </div>
-
     </ion-list>
   </div>
 
