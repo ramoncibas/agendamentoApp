@@ -50,21 +50,27 @@
   right: 5%;
 
   height: 100%;
-  border: .5px solid #c5c5c5;
+  box-shadow: 5px 5px 10px rgba(144, 140, 140, 0.239), 
+            -5px -5px 10px rgba(131, 130, 130, 0.239);
+  border-radius: 5px 5px 0 0;
 
   z-index: 5;
-}
-
-ion-item.appointment-menu { 
-  margin-top: 10px;
-
-  ion-icon,
-  h3 {
-    color: var(--ion-color-primary);
+  
+  ion-list {
+    border-radius: 5px 5px 0 0;
   }
 
-  h6 {
-    color: var(--ion-color-dark-tint);
+  ion-item.appointment-menu { 
+    margin-top: 10px;
+
+    ion-icon,
+    h3 {
+      color: var(--ion-color-primary);
+    }
+
+    h6 {
+      color: var(--ion-color-dark-tint);
+    }
   }
 }
 
