@@ -15,14 +15,14 @@
         <ion-item>
           <ion-item>
             <ion-avatar slot="start">
-              <img [src]="appointments.doctorPic" />
+              <img [src]="doctorImg" />
             </ion-avatar>
-            <ion-label>{{ appointments.doctor }}</ion-label>
-            <span>{{ appointments.doctorSpeciality }}</span>           
+            <ion-label>{{ firstName }}</ion-label>
+            <span>{{ doctorSpeciality }}</span>           
           </ion-item>
         </ion-item>
         <ion-item>
-          <ion-label>Marcado para: {{ appointments.dayAt | date: 'short' }}</ion-label>
+          <ion-label>Marcado para: {{ dayAt | date: 'short' }}</ion-label>
         </ion-item>
     </ion-list>
   </div>
