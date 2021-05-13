@@ -11,19 +11,43 @@
   </div>
 
   <div class="container">
-    <ion-list *ngIf="!appointments.length">
+    <ion-list>
       <ion-item class="ion-text-center" lines="none">
         <ion-label color="medium">Nenhuma consulta registrada...</ion-label>
       </ion-item>
     </ion-list>
 
     <ion-list class="appointments">
-      <ion-item *ngFor="let appointment of appointments" (click)="presentModal()" class="appointment-menu">
-          <ion-icon slot="start" name={{appointment.icon}}></ion-icon>
-          <ion-label>
-            <h3>{{ appointment.title }}</h3>
-            <h6>{{ appointment.description }}</h6>
-          </ion-label>
+      <ion-item (click)="presentModal()" class="appointment-menu">
+        <ion-icon slot="start" name="person"></ion-icon>
+        <ion-label>
+          <h3>Meus Medicamentos</h3>
+          <h6>Medicamentos cadastrados e comprados</h6>
+        </ion-label>
+      </ion-item>
+
+      <ion-item (click)="presentModal()" class="appointment-menu">
+        <ion-icon slot="start" name="eyedrop"></ion-icon>
+        <ion-label>
+          <h3>Minhas Vacinas</h3>
+          <h6>Carteirinha de vacinação</h6>
+        </ion-label>
+      </ion-item>
+
+      <ion-item (click)="presentModal()" class="appointment-menu">
+        <ion-icon slot="start" name="id-card"></ion-icon>
+        <ion-label>
+          <h3>Meus Exames</h3>
+          <h6>Acompanhamento de exames realizados</h6>
+        </ion-label>
+      </ion-item>
+
+      <ion-item (click)="presentModal()" class="appointment-menu">
+        <ion-icon slot="start" name="person-circle"></ion-icon>
+        <ion-label>
+          <h3>Meus Profissionais</h3>
+          <h6>Veja sua lista de profissionais já consultado</h6>
+        </ion-label>
       </ion-item>
     </ion-list>
   </div>
