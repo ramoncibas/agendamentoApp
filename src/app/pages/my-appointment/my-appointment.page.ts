@@ -7,30 +7,7 @@ import { MyAppointmentModalPage } from '../modals/myappointment/myappointment.pa
   templateUrl: './my-appointment.page.html',
   styleUrls: ['./my-appointment.page.scss'],
 })
-export class MyAppointmentPage implements OnInit {
-  private appointments = [
-    {
-      title: 'Meus Medicamentos',
-      description: 'Medicamentos cadastrados e comprados',
-      icon: 'person'      
-    },
-    {
-      title: 'Minhas Vacinas',
-      description: 'Carteirinha de vacinação',
-      icon: 'eyedrop'      
-    },
-    {
-      title: 'Meus Exames',
-      description: 'Acompanhamento de exames realizados',
-      icon: 'id-card'      
-    },
-    {
-      title: 'Meus Profissionais',
-      description: 'Veja sua lista de profissionais já consultado',
-      icon: 'person-circle'      
-    },
-    
-  ]
+export class MyAppointmentPage implements OnInit {  
 
   constructor(public modalControll: ModalController) { }
 
@@ -38,10 +15,17 @@ export class MyAppointmentPage implements OnInit {
   }
 
   async presentModal() {
+    const dateHj = new Date();
     const modal = await this.modalControll.create({
       component: MyAppointmentModalPage,
       cssClass: 'my-custom-class',
-      swipeToClose: true      
+      swipeToClose: true,
+      componentProps: {
+        'firtName': 'Dr. Yang',
+        'doctorImg': 'https://images.unsplash.com/photo-1543486958-d783bfbf7f8e?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Mnx8c2VsZmllfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=60',
+        'doctorSpeciality': 'Clinico Geral',
+        'dayAt': dateHj
+      }
     });
     return await modal.present();
   }
