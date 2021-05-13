@@ -22,10 +22,10 @@ const routes: Routes = [
   {
     path: 'splash-screen',
     loadChildren: () => import('./pages/splash-screen/splash-screen.module')
-      .then((m) => m.SplashScreenPageModule), canActivate: [LoginGuard]
+      .then((m) => m.SplashScreenPageModule), canActivate: [LoginGuard],
   },
   {
-    path: 'appointment',
+    path: 'medical-appointment',
     loadChildren: () => import('./pages/medical-appointment/medical-appointment.module')
       .then((m) => m.MedicalAppointmentPageModule), canActivate: [AuthGuard],
   },
@@ -45,8 +45,14 @@ const routes: Routes = [
       .then((m) => m.MyAppointmentPageModule), canActivate: [AuthGuard],
   },
   {
+    path: 'my-appointment/:id',
+    loadChildren: () => import('./pages/my-appointment/my-appointment.module')
+      .then((m) => m.MyAppointmentPageModule), canActivate: [AuthGuard],
+  },
+  {
     path: 'modal',
-    loadChildren: () => import('./pages/modals/myappointment/myappointment.module').then( m => m.MyAppointmentModalPageModule)
+    loadChildren: () => import('./pages/modals/myappointment/myappointment.module')
+      .then( m => m.MyAppointmentModalPageModule), canActivate: [AuthGuard],
   },
 ];
 
