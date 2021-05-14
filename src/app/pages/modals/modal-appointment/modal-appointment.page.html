@@ -14,15 +14,15 @@
     <ion-list>
         <ion-item>
           <ion-item>
-            <ion-avatar slot="start">
-              <img [src]="doctorImg" />
+            <ion-avatar slot="start" *ngIf="modalParam.doctorImg != null">
+              <img [src]="modalParam.doctorImg" />
             </ion-avatar>
-            <ion-label>{{ firstName }}</ion-label>
-            <span>{{ doctorSpeciality }}</span>           
+            <ion-label>{{ modalParam.name }}</ion-label>
+            <span>{{ modalParam.secondName }}</span>
           </ion-item>
         </ion-item>
         <ion-item>
-          <ion-label>Marcado para: {{ dayAt | date: 'short' }}</ion-label>
+          <ion-label>Marcado para: {{ modalParam.dayAt | date: 'short' }}</ion-label>
         </ion-item>
     </ion-list>
   </div>

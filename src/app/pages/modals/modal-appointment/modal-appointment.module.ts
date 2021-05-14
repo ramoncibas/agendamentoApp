@@ -4,9 +4,9 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { MyAppointmentModalPageRoutingModule } from './myappointment-routing.module';
+import { MyAppointmentModalPageRoutingModule } from './modal-appointment-routing.module';
 
-import { MyAppointmentModalPage } from './myappointment.page';
+import { MyAppointmentModalPage } from './modal-appointment.page';
 
 @NgModule({
   imports: [

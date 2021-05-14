@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { MyAppointmentModalPage } from './myappointment.page';
+import { MyAppointmentModalPage } from './modal-appointment.page';
 
 const routes: Routes = [
   {
