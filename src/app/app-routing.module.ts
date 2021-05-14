@@ -51,7 +51,7 @@ const routes: Routes = [
   },
   {
     path: 'modal',
-    loadChildren: () => import('./pages/modals/myappointment/myappointment.module')
+    loadChildren: () => import('./pages/modals/modal-appointment/modal-appointment.module')
       .then( m => m.MyAppointmentModalPageModule), canActivate: [AuthGuard],
   },
 ];
