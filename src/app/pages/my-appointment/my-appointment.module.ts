@@ -7,7 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { MyAppointmentPageRoutingModule } from './my-appointment-routing.module';
 
 import { MyAppointmentPage } from './my-appointment.page';
-import { MyAppointmentModalPage } from '../modals/myappointment/myappointment.page';
+import { MyAppointmentModalPage } from '../modals/modal-appointment/modal-appointment.page';
 
 @NgModule({
   imports: [
