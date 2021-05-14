@@ -18,7 +18,7 @@
     </ion-list>
 
     <ion-list class="appointments">
-      <ion-item (click)="presentModal()" class="appointment-menu">
+      <ion-item (click)="showModal('pills')" class="appointment-menu">
         <ion-icon slot="start" name="person"></ion-icon>
         <ion-label>
           <h3>Meus Medicamentos</h3>
@@ -26,7 +26,7 @@
         </ion-label>
       </ion-item>
 
-      <ion-item (click)="presentModal()" class="appointment-menu">
+      <ion-item (click)="showModal('vaccine')" class="appointment-menu">
         <ion-icon slot="start" name="eyedrop"></ion-icon>
         <ion-label>
           <h3>Minhas Vacinas</h3>
@@ -34,7 +34,7 @@
         </ion-label>
       </ion-item>
 
-      <ion-item (click)="presentModal()" class="appointment-menu">
+      <ion-item (click)="showModal('check-up')" class="appointment-menu">
         <ion-icon slot="start" name="id-card"></ion-icon>
         <ion-label>
           <h3>Meus Exames</h3>
@@ -42,7 +42,7 @@
         </ion-label>
       </ion-item>
 
-      <ion-item (click)="presentModal()" class="appointment-menu">
+      <ion-item (click)="showModal('professionals')" class="appointment-menu">
         <ion-icon slot="start" name="person-circle"></ion-icon>
         <ion-label>
           <h3>Meus Profissionais</h3>
