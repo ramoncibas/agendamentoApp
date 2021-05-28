@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ModalController } from '@ionic/angular';
+import { MedicalAppointmentModalPage } from '../modals/modal-medical/modal-medical.page';
 import { Subscription } from 'rxjs';
 import { Appointment } from 'src/app/interfaces/appointment';
 import { AppointmentService } from 'src/app/services/appointment.service';
@@ -10,6 +12,7 @@ import { AppointmentService } from 'src/app/services/appointment.service';
 })
 export class MedicalAppointmentPage implements OnInit {
 
+  constructor(public modalControll: ModalController) {}
   // Fake data
   private appointments = [
     {
@@ -20,9 +23,15 @@ export class MedicalAppointmentPage implements OnInit {
       description: 'Consulta de rotina.',
       createdAt: new Date(),
       price: null,
-      timeAvaliable: 'Horarios disponiveis: 12h - 16h'
+      timeAvaliable: [
+        {
+          week: ['seg, quar, sex'],
+          day: '2021-05-01T15:43:40.394Z'
+        }
+      ]
     },
   ];
+
   
   // private appointments =  new Array<Appointment>();
   // private appointmentsSubscription: Subscription;
@@ -33,10 +42,26 @@ export class MedicalAppointmentPage implements OnInit {
   //   });
   // }
 
-  ngOnInit() {}
+  ngOnInit() {
+    console.log(this.appointments[0].timeAvaliable[0].day);
+  }
 
   // // Destroy listen
   // ngOnDestroy() {
   //   this.appointmentsSubscription.unsubscribe();
   // }
+
+  // Show Modal with options (make-appointment and show time of doctor)
+  async presentModal(modalParam) {
+    console.log(modalParam)
+    const modal = await this.modalControll.create({
+      component: MedicalAppointmentModalPage,
+      cssClass: 'my-custom-class',
+      swipeToClose: true,
+      componentProps: {
+        modalParam
+      }
+    });
+    return await modal.present();
+  }
 }

@@ -38,7 +38,7 @@
     <ion-list>
       <ion-searchbar placeholder="Busque por um especialista" inputmode="decimal" type="decimal" (ionChange)="onSearchChange($event)" [debounce]="250" showCancelButton="always"></ion-searchbar>
 
-      <ion-item *ngFor="let appointment of appointments">
+      <ion-item *ngFor="let appointment of appointments" (click)="presentModal(appointments)">
         <ion-avatar slot="start">
           <img [src]="appointment.picture">
         </ion-avatar>
