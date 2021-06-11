@@ -12,33 +12,33 @@
 
   </div>
 
-  <ion-list *ngIf="!appointments.length">
-    <ion-item *ngFor="let items of [0, 1, 2, 3]">
-      <ion-avatar slot="start">
-        <ion-skeleton-text animated></ion-skeleton-text>
-      </ion-avatar>
-
-      <ion-label>
-        <h3>
-          <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
-        </h3>
-
-        <p>
-          <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
-        </p>
-        <p>
-          <ion-skeleton-text animated style="width: 30%"></ion-skeleton-text>
-        </p>
-      </ion-label>
-
-    </ion-item>
-  </ion-list>
-
-  <div class="container">  
+  <div class="container">
     <ion-list>
       <ion-searchbar placeholder="Busque por um especialista" inputmode="decimal" type="decimal" (ionChange)="onSearchChange($event)" [debounce]="250" showCancelButton="always"></ion-searchbar>
 
-      <ion-item *ngFor="let appointment of appointments" (click)="presentModal(appointments)">
+      <ion-list *ngIf="!appointments.length">
+        <ion-item *ngFor="let items of [0, 1, 2, 3, 4]">
+          <ion-avatar slot="start">
+            <ion-skeleton-text animated></ion-skeleton-text>
+          </ion-avatar>
+    
+          <ion-label>
+            <h3>
+              <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+            </h3>
+    
+            <p>
+              <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+            </p>
+            <p>
+              <ion-skeleton-text animated style="width: 30%"></ion-skeleton-text>
+            </p>
+          </ion-label>
+    
+        </ion-item>
+      </ion-list>
+
+      <ion-item *ngFor="let appointment of appointments" (click)="presentModal(appointment)">
         <ion-avatar slot="start">
           <img [src]="appointment.picture">
         </ion-avatar>
