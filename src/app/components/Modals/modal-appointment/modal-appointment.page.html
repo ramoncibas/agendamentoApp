@@ -1,0 +1,27 @@
+<ion-content>
+  <div class="myappointment-background">
+    <ion-button (click)="closeModal()" fill="clear">
+      <ion-icon slot="icon-only" name="close"></ion-icon>
+    </ion-button>
+
+    <div class="myappointment">
+      <img src="/assets/img/doctor-avatar.png">
+      <h4>Suas Informações</h4>
+    </div>
+  </div>
+
+  <div class="container">
+    <ion-list>
+        <ion-item>          
+          <ion-label>{{ modalParam.name }}  {{ modalParam.secondName }}</ion-label>          
+        </ion-item>
+        <ion-item>
+          <ion-label>Marcado para: {{ modalParam.dayAt | date: 'short' }}</ion-label>
+        </ion-item>
+    </ion-list>
+  </div>
+
+  <ion-button (click)="onClick()" expand="full" color="danger" class="editAppointment">
+    Deletar
+  </ion-button>
+</ion-content>
