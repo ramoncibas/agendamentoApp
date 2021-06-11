@@ -10,7 +10,7 @@
         <ion-label>Ramon Cibas</ion-label>
         <span>Nº Cartão: DS213DJKH21</span>
 
-        <ion-button (click)="onClick()" fill="clear">
+        <ion-button [routerLink]="['/my-profile']" fill="clear">
           <ion-icon slot="icon-only" name="arrow-forward"></ion-icon>
         </ion-button>
       </div>
@@ -61,7 +61,7 @@
           </div>
         </ion-col>
 
-        <ion-col size="6" class="border-col" [routerLink]="['/my-profile-card']">
+        <ion-col size="6" class="border-col" [routerLink]="['/my-profile']">
           <div class="health">
             <img src="/assets/icon/id-card.svg">
             <ion-label>Acessar meu Cartão</ion-label>
