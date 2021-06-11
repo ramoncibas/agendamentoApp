@@ -1,0 +1,22 @@
+<ion-content>
+  <div class="profile-background">
+    <ion-button [routerLink]="['/home']" fill="clear">
+      <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+    </ion-button>
+
+    <div class="profile-info">
+      <img [src]="userProfile.img">
+      <h4>{{ userProfile.email }}</h4>
+    </div>
+  </div>
+
+  <div class="container">
+    <ion-list class="appointments">
+      
+      
+      <ion-button (click)="loggoutBtn()" expand="block" fill="clear">
+        Log Out
+      </ion-button>
+    </ion-list>
+  </div>
+</ion-content>
