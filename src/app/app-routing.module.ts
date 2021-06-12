@@ -6,7 +6,7 @@ import { LoginGuard } from './guards/login.guard';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'splash-screen',
+    redirectTo: 'login',
     pathMatch: 'full',
   },
   {
@@ -18,11 +18,6 @@ const routes: Routes = [
     path: 'login',
     loadChildren: () => import('./pages/login/login.module')
       .then((m) => m.LoginPageModule), canActivate: [LoginGuard],
-  },
-  {
-    path: 'splash-screen',
-    loadChildren: () => import('./pages/splash-screen/splash-screen.module')
-      .then((m) => m.SplashScreenPageModule), canActivate: [LoginGuard],
   },
   {
     path: 'medical-appointment',
@@ -50,14 +45,20 @@ const routes: Routes = [
       .then((m) => m.MyAppointmentPageModule), canActivate: [AuthGuard],
   },
   {
-    path: 'modal-appointment',
-    loadChildren: () => import('./pages/modals/modal-appointment/modal-appointment.module')
-      .then( m => m.MyAppointmentModalPageModule), canActivate: [AuthGuard],
+    path: 'my-profile',
+    loadChildren: () => import('./pages/my-profile/my-profile.module').then( m => m.MyProfilePageModule)
   },
   {
-    path: 'modal-medical',
-    loadChildren: () => import('./pages/modals/modal-medical/modal-medical.module')
-      .then( m => m.MedicalAppointmentModalPageModule), canActivate: [AuthGuard],
+    path: 'pills',
+    loadChildren: () => import('./pages/pills/pills.module').then( m => m.PillsPageModule)
+  },
+  {
+    path: 'sac',
+    loadChildren: () => import('./pages/sac/sac.module').then( m => m.SacPageModule)
+  },
+  {
+    path: 'health-services',
+    loadChildren: () => import('./pages/health-services/health-services.module').then( m => m.HealthServicesPageModule)
   },
 ];
 
