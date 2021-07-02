@@ -13,12 +13,14 @@ export class AppointmentService {
     this.appointementCollection = this.afs.collection<Appointment>('appointment');
   }
 
+  getAppointment(id: string) {}
+
   getAppointments() {
     return this.appointementCollection.snapshotChanges().pipe(
       map(actions => {
-        return actions.map(a => {
-          const data = a.payload.doc.data();
-          const id = a.payload.doc.id;
+        return actions.map(item => {
+          const data = item.payload.doc.data();
+          const id = item.payload.doc.id;
 
           return { id, ...data };
         })
@@ -27,8 +29,6 @@ export class AppointmentService {
   }
 
   addAppointment(appointment) {}
-
-  getAppointment(id: string) {}
 
   updateAppointment(id: string, appointment: Appointment) {}
 
