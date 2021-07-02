@@ -1,8 +1,14 @@
 <ion-content>
   <div class="myappointment-background">
-    <ion-button (click)="closeModal()" fill="clear">
-      <ion-icon slot="icon-only" name="close"></ion-icon>
-    </ion-button>
+    <div class="buttons">
+      <ion-button (click)="closeModal()" fill="clear" slot="start">
+        <ion-icon slot="icon-only" name="close"></ion-icon>
+      </ion-button>
+  
+      <ion-button (click)="onClick()" fill="clear" slot="end">
+        <ion-icon slot="icon-only" name="share-social"></ion-icon>
+      </ion-button>
+    </div>
 
     <div class="myappointment">
       <img src="/assets/img/doctor-avatar.png">
@@ -12,10 +18,10 @@
 
   <div class="container">
     <ion-list>
-        <ion-item>          
+        <ion-item lines="none">          
           <ion-label>{{ modalParam.name }}  {{ modalParam.secondName }}</ion-label>          
         </ion-item>
-        <ion-item>
+        <ion-item lines="none">
           <ion-label>Marcado para: {{ modalParam.dayAt | date: 'short' }}</ion-label>
         </ion-item>
     </ion-list>
