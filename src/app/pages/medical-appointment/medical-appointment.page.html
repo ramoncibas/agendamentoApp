@@ -14,10 +14,13 @@
 
   <div class="container">
     <ion-list>
-      <ion-searchbar placeholder="Busque por um especialista" inputmode="decimal" type="decimal" (ionChange)="onSearchChange($event)" [debounce]="250" showCancelButton="always"></ion-searchbar>
+      <ion-toolbar>
+        <ion-searchbar placeholder="Busque por um especialista" inputmode="decimal" type="decimal" (ionChange)="onSearchChange($event)" [debounce]="250" showCancelButton="always"></ion-searchbar>
+      </ion-toolbar>
+      
 
-      <ion-list *ngIf="!appointments.length">
-        <ion-item *ngFor="let items of [0, 1, 2, 3, 4]">
+      <ion-list *ngIf="!appointments.length" class="ion-no-padding">
+        <ion-item *ngFor="let items of [0, 1, 2, 3, 4]" lines="none">
           <ion-avatar slot="start">
             <ion-skeleton-text animated></ion-skeleton-text>
           </ion-avatar>
@@ -38,7 +41,7 @@
         </ion-item>
       </ion-list>
 
-      <ion-item *ngFor="let appointment of appointments" (click)="presentModal(appointment)">
+      <ion-item *ngFor="let appointment of appointments" (click)="presentModal(appointment)" lines="none">
         <ion-avatar slot="start">
           <img [src]="appointment.picture">
         </ion-avatar>
