@@ -1,7 +1,8 @@
 {
   "name": "agendamentoApp",
   "integrations": {
-    "cordova": {}
+    "cordova": {},
+    "capacitor": {}
   },
   "type": "angular"
 }
