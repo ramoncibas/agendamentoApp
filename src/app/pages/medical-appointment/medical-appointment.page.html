@@ -15,9 +15,8 @@
   <div class="container">
     <ion-list>
       <ion-toolbar>
-        <ion-searchbar placeholder="Busque por um especialista" inputmode="decimal" type="decimal" (ionChange)="onSearchChange($event)" [debounce]="250" showCancelButton="always"></ion-searchbar>
-      </ion-toolbar>
-      
+        <ion-searchbar placeholder="Busque por um especialista" (ionChange)="onSearchChange($event)" [debounce]="250" showCancelButton="always"></ion-searchbar>
+      </ion-toolbar>      
 
       <ion-list *ngIf="!appointments.length" class="ion-no-padding">
         <ion-item *ngFor="let items of [0, 1, 2, 3, 4]" lines="none">
@@ -42,28 +41,19 @@
       </ion-list>
 
       <ion-item *ngFor="let appointment of appointments" (click)="presentModal(appointment)" lines="none">
-        <ion-avatar slot="start">
-          <img [src]="appointment.picture">
-        </ion-avatar>
-
         <ion-label>
-          {{ appointment.name }}
+          <h2>{{ appointment.name }}</h2>
           <p>{{ appointment.specialty }}</p>
           <p>{{ appointment.timeAvaliable }}</p>
-          <!-- 
-            Adicionar um pequeno select, onde o usuario podera clicar e ver um modal em sua tela,
-            mostrando assim, os horarios disponiveis na semana do medico em especifico!
-          -->
-          <!-- <p>{{ appointment.description }}</p> -->
-          <!-- <p>{{ appointment.createdAt | date: 'short' }}</p> -->
         </ion-label>
-
-        <ion-note *ngIf="appointment.price" color="primary" slot="end">
-          {{ appointment.price | currency: 'BRL' }}
-        </ion-note>
-
+        <ion-thumbnail slot="start">
+          <img [src]="appointment.picture" style="border-radius: 50%;">
+        </ion-thumbnail>
       </ion-item>
     </ion-list>
   </div>
 
 </ion-content>
+
+<!-- Adicionar um pequeno select, onde o usuario podera clicar e ver um modal em sua tela,
+mostrando assim, os horarios disponiveis na semana do medico em especifico! -->
