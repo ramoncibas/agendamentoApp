@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
-import { MyAppointmentModalPage } from '../../components/Modals/modal-appointment/modal-appointment.page'
+import { MyAppointmentModalPage } from '../../components/Modals/modal-appointment/modal-appointment.page';
 
 @Component({
   selector: 'app-my-appointment',
@@ -8,63 +8,74 @@ import { MyAppointmentModalPage } from '../../components/Modals/modal-appointmen
   styleUrls: ['./my-appointment.page.scss'],
 })
 export class MyAppointmentPage implements OnInit {
-
   constructor(public modalControll: ModalController) { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
   // Fake data
   showModal(e) {
     if (e == 'pills') {
-      console.log(e)
-      const data = {    
-        name: 'Medicalmento: Paracetamol',        
-        secondName: '12mg',
-        dayAt: new Date()
-      }
-      this.presentModal(data)
+      console.log(e);
+      const type = "Meus Medicamentos";
+      const data = [
+        {
+          about: 'Medicalmento: Paracetamol 12mg',
+          description: 'Quantidade: 12mg',
+          dayAt: `Cadastrado: ${new Date()}`,
+        },
+      ];
+      this.presentModal(data, type);
 
     } else if (e == 'vaccine') {
-      console.log(e)
-      const data = {
-        name: 'Vacinando contra: Covid-19',
-        secondName: 'Vacina: CoronaVac',
-        dayAt: new Date()
-      }
-      this.presentModal(data)
+      console.log(e);
+      const type = "Meus Vacinas";
+      const data = [
+        {
+          about: 'Vacinando contra: Covid-19',
+          description: 'Vacina: CoronaVac',
+          dayAt: `Vacinado em: ${new Date()}`,
+        },
+      ];
+      this.presentModal(data, type);
 
     } else if (e == 'check-up') {
-      const data = {    
-        name: 'Exame: Consulta de Rotina',
-        secondName: 'Medico: Dr. Yang',
-        dayAt: new Date()
-      }
-      this.presentModal(data)
+      const type = "Meus Exames";
+      const data = [
+        {
+          about: 'Exame: Consulta de Rotina',
+          description: 'Medico: Dr. Yang',
+          dayAt: `Marcado para: ${new Date()}`,
+        },
+      ];
+      this.presentModal(data, type);
 
-    } else  {
-      console.log(e)
-      const data = {    
-        name: 'Medico: Dr. Yang',
-        doctorImg: 'https://images.unsplash.com/photo-1543486958-d783bfbf7f8e?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Mnx8c2VsZmllfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=60',
-        secondName: 'Especialidade: Clinico Geral',
-        dayAt: new Date()
-      }
-      this.presentModal(data)
+    } else {
+      console.log(e);
+      const type = "Meus Profissionais";
+      const data = [
+        {
+          about: 'Medico: Dr. Yang',
+          doctorImg:
+            'https://images.unsplash.com/photo-1543486958-d783bfbf7f8e?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Mnx8c2VsZmllfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=60',
+          description: 'Especialidade: Clinico Geral',
+          dayAt: '',
+        },
+      ];
+      this.presentModal(data, type);
     }
-
   }
 
-  async presentModal(modalParam) { 
-    console.log(modalParam)
+  async presentModal(data:object, type:string) {
+    console.log(data);
     const modal = await this.modalControll.create({
       component: MyAppointmentModalPage,
       cssClass: 'my-custom-class',
       swipeToClose: true,
       componentProps: {
-        modalParam
-      }
+        data, type
+      },
     });
     return await modal.present();
   }
+
 }
