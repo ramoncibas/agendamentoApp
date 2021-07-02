@@ -7,17 +7,25 @@ import { ModalController } from '@ionic/angular';
   styleUrls: ['./modal-appointment.page.scss'],
 })
 export class MyAppointmentModalPage implements OnInit {
-  @Input() modalParam: any;
   // Fake data  
+  @Input() data: any;
+  @Input() type: any;
 
   constructor(private modalControll: ModalController) { }
 
   ngOnInit() {
-    console.log(this.modalParam)
+    console.log(this.data)
   }
   
   async closeModal() {
     await this.modalControll.dismiss();
   }
-  
+ 
+  async shareItem(data) {
+    console.log(data);
+  }
+
+  async deleteItem(data) {
+    console.log(data)
+  }
 }
