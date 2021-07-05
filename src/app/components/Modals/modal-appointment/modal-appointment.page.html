@@ -17,10 +17,28 @@
   </div>
 
   <div class="container">
-    <ion-list class="ion-no-padding">
-      <ion-button (click)="cleanHistory()" color="danger" class="editAppointment ion-no-padding">
-        Limpar Historico
-      </ion-button>
+    <ion-button (click)="cleanHistory(data)" color="danger">
+      Limpar Historico
+    </ion-button>
+
+    <ion-list *ngIf="!data.length" class="ion-no-padding">
+      <ion-item *ngFor="let items of [0, 1, 2]" lines="none" style="margin-top: 10px;">  
+        <ion-label>
+          <h3>
+            <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+          </h3>  
+          <p>
+            <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+          </p>
+          <p>
+            <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+          </p>
+        </ion-label>
+  
+      </ion-item>
+    </ion-list>
+
+    <ion-list class="ion-no-padding">      
       <ion-item-sliding *ngFor="let item of data">
         <ion-item-options side="start">
           <ion-item-option color="primary" (click)="shareItem(item)">Share</ion-item-option>
