@@ -6,17 +6,18 @@ import { ModalController } from '@ionic/angular';
   templateUrl: './modal-medical-appointment.page.html',
   styleUrls: ['./modal-medical-appointment.page.scss'],
 })
+
 export class ModalMedicalAppointmentPage implements OnInit {
 
   // Passando valores para o Modal from another Page.
-  @Input() modalParam: any;
+  @Input() data: any;  
   constructor(private modalControll: ModalController) { }
 
   ngOnInit() {    
-    console.log(this.modalParam)
+    console.log(this.data.specialty)
 
-     if (this.modalParam.picture == null || this.modalParam.picture == '') {
-      this.modalParam.picture = "/assets/img/doctor-avatar.png";
+     if (this.data.picture == null || this.data.picture == '') {
+      this.data.picture = "/assets/img/doctor-avatar.png";
     }
   }
 
@@ -24,6 +25,7 @@ export class ModalMedicalAppointmentPage implements OnInit {
     await this.modalControll.dismiss();
   }
 
- 
-
+  async mkAppointment(data) {
+    console.log(data)
+  }
 }

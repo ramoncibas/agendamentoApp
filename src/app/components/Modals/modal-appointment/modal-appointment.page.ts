@@ -26,6 +26,10 @@ export class MyAppointmentModalPage implements OnInit {
   }
 
   async deleteItem(data) {
-    console.log(data)
+    console.log(data);
+  }
+
+  async cleanHistory(data) {
+    console.log(data);
   }
 }
