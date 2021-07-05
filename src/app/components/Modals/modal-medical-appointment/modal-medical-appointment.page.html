@@ -4,37 +4,44 @@
       <ion-button (click)="closeModal()" fill="clear" slot="start">
         <ion-icon slot="icon-only" name="close"></ion-icon>
       </ion-button>
-  
+      
       <ion-button (click)="onClick()" fill="clear" slot="end">
         <ion-icon slot="icon-only" name="share-social"></ion-icon>
       </ion-button>
     </div>
-
+    
     <div class="myappointment">
-      <img  [src]="modalParam.picture" />
-      <h6>{{ modalParam.description }}</h6>
+      <img  [src]="data.picture" />
+      <h4>{{ data.name }}</h4>
     </div>
   </div>
   <div class="container">
     <ion-list class="ion-no-padding">
       <ion-item lines="none">
-        <ion-label>{{ modalParam.name }}</ion-label>
+        <ion-label>{{ data.description }}</ion-label>
       </ion-item>
-
-      <ion-item lines="none">
-        <ion-label>Especialidade: {{ modalParam.specialty }}</ion-label>
+      
+      <ion-item>
+        <ion-label>Especialidade:</ion-label>
+        <ion-select multiple="false">
+          <ion-select-option *ngFor="let item of data.specialty" [value]="item.specialty">{{ item.specialty }}</ion-select-option>
+        </ion-select>
       </ion-item>
-
+      
       <ion-item lines="none">
         <ion-label>Agenda disponivel:</ion-label>
-        <ion-datetime display-format="DD.MM.YYYY HH" value="{{ modalParam.timeAvaliable }}"></ion-datetime>
+        <ion-datetime display-format="DD.MM.YYYY HH" value="{{ data.timeAvaliable }}"></ion-datetime>
       </ion-item>
-
-      <ion-button (click)="onClick()" class="editAppointment">
+      
+      <ion-item lines="none">
+        <ion-label>Valor da consulta: R${{ data.price }}</ion-label>
+      </ion-item>
+      
+      <ion-button (click)="mkAppointment(data)">
         Agendar
       </ion-button>
     </ion-list>
   </div>
-
+  
   
 </ion-content>
