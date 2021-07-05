@@ -23,6 +23,7 @@
 
     h4 {
       margin: 0;
+      color: #fff;
     }
 
     img {
@@ -38,18 +39,14 @@
   left: 2%;
   right: 2%;
 
-  height: 100%;
-  box-shadow: 5px 5px 10px rgba(144, 140, 140, 0.239),
-    -5px -5px 10px rgba(131, 130, 130, 0.239);
+  box-shadow: var(--ion-box-shadow-container);
 
   z-index: 5;
 
-  background: #000;
-
-  border-radius: 5px 5px 0 0;
+  border-radius: 10px;
 
   & ion-list {
-    border-radius: 10px 10px 0 0;
+    border-radius: 10px;
 
     ion-item {
       --border-color: rgba(0, 0, 0, 0.125);
@@ -58,7 +55,7 @@
       --border-radius: 10px;
       --padding-top: 5%;
       --padding-bottom: 5%;
-      box-shadow: 0 0.25rem 0.75rem rgb(0 0 0 / 5%);
+      box-shadow: var(--ion-box-shadow);
 
       & ~ ion-item {
         margin-top: 10px;

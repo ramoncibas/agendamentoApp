@@ -49,16 +49,13 @@
   left: 5%;
   right: 5%;
 
-  height: 100%;
-  box-shadow: 5px 5px 10px rgba(144, 140, 140, 0.239), 
-            -5px -5px 10px rgba(131, 130, 130, 0.239);
-  border-radius: 5px 5px 0 0;
+  box-shadow: var(--ion-box-shadow-container);
+  border-radius: 10px;
 
   z-index: 5;
   
   ion-list {
-    height: 100%;
-    border-radius: 10px 10px 0 0;
+    border-radius: 10px;
     
     ion-item {
       --border-color: rgba(0, 0, 0, 0.125);
@@ -67,7 +64,7 @@
       --border-radius: 10px;
       --padding-top: 5%;
       --padding-bottom: 5%;
-      box-shadow: 0 0.25rem 0.75rem rgb(0 0 0 / 5%);
+      box-shadow: var(--ion-box-shadow);
 
       & ~ ion-item {
         margin-top: 10px;
@@ -84,13 +81,4 @@
       }
     }
   }
-}
-
-ion-button.deleteHistory {
-  position: fixed;
-  right: 0;
-  left: 0;
-  bottom: 0;
-
-  z-index: 10;
 }

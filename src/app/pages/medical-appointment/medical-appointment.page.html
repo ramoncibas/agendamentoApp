@@ -13,13 +13,13 @@
   </div>
 
   <div class="container">
-    <ion-list>
+    <ion-list class="ion-no-padding">
       <ion-toolbar>
         <ion-searchbar placeholder="Busque por um especialista" (ionChange)="onSearchChange($event)" [debounce]="250" showCancelButton="always"></ion-searchbar>
       </ion-toolbar>      
 
       <ion-list *ngIf="!appointments.length" class="ion-no-padding">
-        <ion-item *ngFor="let items of [0, 1, 2, 3, 4]" lines="none">
+        <ion-item *ngFor="let items of [0, 1, 2]" lines="none">
           <ion-avatar slot="start">
             <ion-skeleton-text animated></ion-skeleton-text>
           </ion-avatar>
