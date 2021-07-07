@@ -45,8 +45,18 @@
 
   border-radius: 10px;
 
+  ion-toolbar {
+    border-radius: 10px 10px 0 0;
+
+    & ion-button {
+      & ion-icon.dark {
+        color: #333;
+      }
+    }
+  }
+
   & ion-list {
-    border-radius: 10px;
+    border-radius: 0 0 10px 10px;
 
     ion-item {
       --border-color: rgba(0, 0, 0, 0.125);

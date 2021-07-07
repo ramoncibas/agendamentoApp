@@ -1,5 +1,4 @@
 <ion-content>
-
   <div class="appointment-background">
     <ion-button [routerLink]="['/home']" fill="clear">
       <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
@@ -7,39 +6,27 @@
 
     <div class="make-appointment">
       <img src="/assets/img/home-logo.png">
-      <h4>Marque uma consulta</h4>
+      <h4>Agende uma consulta</h4>
     </div>
-
   </div>
 
   <div class="container">
-    <ion-list class="ion-no-padding">
-      <ion-toolbar>
-        <ion-searchbar placeholder="Busque por um especialista" (ionChange)="onSearchChange($event)" [debounce]="250" showCancelButton="always"></ion-searchbar>
-      </ion-toolbar>      
+    <ion-toolbar>
+      <ion-searchbar 
+        placeholder="Buscar por Especialista"
+        [disabled]="appointments.length ? false : true"
+        (ionInput)="searchForSpecialist($event, appointments)"
+        [debounce]="250"
+        showCancelButton="focus"
+      ></ion-searchbar>
 
-      <ion-list *ngIf="!appointments.length" class="ion-no-padding">
-        <ion-item *ngFor="let items of [0, 1, 2]" lines="none">
-          <ion-avatar slot="start">
-            <ion-skeleton-text animated></ion-skeleton-text>
-          </ion-avatar>
-    
-          <ion-label>
-            <h3>
-              <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
-            </h3>
-    
-            <p>
-              <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
-            </p>
-            <p>
-              <ion-skeleton-text animated style="width: 30%"></ion-skeleton-text>
-            </p>
-          </ion-label>
-    
-        </ion-item>
-      </ion-list>
+      <ion-button (click)="filterSpecialist()" slot="end" fill="clear">
+        <ion-icon slot="icon-only" name="filter"></ion-icon>
+      </ion-button>
+    </ion-toolbar>
 
+    <ion-list *ngIf="appointments.length" class="ion-no-padding">
+      
       <ion-item *ngFor="let appointment of appointments" (click)="presentModal(appointment)" lines="none">
         <ion-label>
           <h2>{{ appointment.name }}</h2>
@@ -51,8 +38,34 @@
         </ion-thumbnail>
       </ion-item>
     </ion-list>
-  </div>
 
+    <ion-infinite-scroll threshold="25%" position="bottom" (ionInfinite)="loadData($event)">
+      <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more data...">
+      </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+
+    <ion-list *ngIf="!appointments.length" class="ion-no-padding">
+      <ion-item *ngFor="let items of [0, 1, 2]" lines="none">
+        <ion-avatar slot="start">
+          <ion-skeleton-text animated></ion-skeleton-text>
+        </ion-avatar>
+  
+        <ion-label>
+          <h3>
+            <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+          </h3>
+  
+          <p>
+            <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+          </p>
+          <p>
+            <ion-skeleton-text animated style="width: 30%"></ion-skeleton-text>
+          </p>
+        </ion-label>
+  
+      </ion-item>
+    </ion-list>
+  </div>
 </ion-content>
 
 <!-- Adicionar um pequeno select, onde o usuario podera clicar e ver um modal em sua tela,
