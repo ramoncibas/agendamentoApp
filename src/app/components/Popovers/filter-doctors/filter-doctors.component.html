@@ -1,0 +1,75 @@
+<ion-list class="ion-no-padding">
+  <ion-list-header>
+    <h4>Filtre os Resultados</h4>
+  </ion-list-header>
+
+  <ion-item>
+    <ion-label>
+      <h4>Especialidade</h4>
+
+      <ion-chip *ngIf="specialty">
+        <ion-label>{{specialty}}</ion-label>
+        <ion-icon name="close"></ion-icon>
+      </ion-chip>
+    </ion-label>
+    <ion-select 
+      ngDefaultControl
+      [(ngModel)]="specialty" 
+      (ionChange)="changeSpecialty($event)"
+    >
+      <ion-select-option *ngFor="let item of data" [value]="item">{{item}}</ion-select-option>
+    </ion-select>
+
+
+  </ion-item>
+
+  <ion-item>
+    <ion-label>
+      <h4>Avaliação</h4>
+
+      <ion-range
+        pin="true"
+        min="1"
+        max="5"
+        step="1"
+        snaps="true"
+        class="assessment"
+        color="dark"
+        ngDefaultControl
+        [(ngModel)]="assessment"
+        (ionChange)="changeAssessment($event)"
+      >
+        <ion-label slot="start">1</ion-label>
+        <ion-label slot="end">5</ion-label>
+      </ion-range>
+    </ion-label>
+
+  </ion-item>
+
+  <ion-item>
+    <ion-label>
+      <h4>Valor da consulta</h4>
+
+      <ion-chip *ngIf="price">
+        <ion-icon name="cash"></ion-icon>
+        <ion-label>{{price}}</ion-label>
+        <ion-icon name="close"></ion-icon>
+      </ion-chip>
+    </ion-label>
+    <ion-select ngDefaultControl [(ngModel)]="price" (ionChange)="changePrice($event)" multiple="true">
+      <ion-select-option *ngFor="let item of dataPrice" [value]="item">{{item}}</ion-select-option>
+    </ion-select>
+
+  </ion-item>
+
+  <ion-buttons>
+    <ion-button (click)="onClick()" color="danger">
+      Cancelar
+    </ion-button>
+
+    <ion-button (click)="onClick()" color="success">
+      Confirmar
+    </ion-button>
+  </ion-buttons>
+
+</ion-list>

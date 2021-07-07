@@ -1,0 +1,17 @@
+.assessment {
+    padding: 0;
+    padding-top: 5px;
+}
+
+ion-chip {
+    color: #fff;
+    background-color: #15232e;
+
+    & ion-icon {
+        color: #fff;
+    }
+}
+
+ion-select::part(text) {
+    display: none;
+}
