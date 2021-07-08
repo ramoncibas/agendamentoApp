@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PopoverController } from '@ionic/angular';
 
-import { Specialty, Value } from './filter-list';
+import { Specialty, Price } from './filter-list';
 
 @Component({
   selector: 'app-filter-doctors',
@@ -14,7 +14,7 @@ export class FilterDoctorsComponent implements OnInit {
   public price;
   public assessment;
   public data = Specialty;
-  public dataPrice = Value;
+  public dataPrice = Price;
   constructor(
     private popover: PopoverController
   ) { }
@@ -28,14 +28,12 @@ export class FilterDoctorsComponent implements OnInit {
   // Select the specialty of doctor
   changeSpecialty(event) {
     let data = event.target.value;
-    console.log(data);
     this.specialty = data;
   }
 
   // Select the assessments of doctor
-  changeAssessment(event) {
+  async changeAssessment(event) {
     let data = event.target.value;
-    console.log(data)
     this.assessment = data;
   }
 
@@ -43,11 +41,19 @@ export class FilterDoctorsComponent implements OnInit {
   changePrice(event) {
     let data = event.target.value;
     if (data.length <= 1) {
-      console.log(data)
       this.price = data;
+
     } else if(data.length > 1) {
-      console.log(data)
-      this.price = [`${data[0]} a ${data[1]}`];
-    }    
+      data.length > 2 ? alert("Selecione somente dois valores!") : this.price = data;
+    }
+  }
+
+  async setFilter() {
+    const data = [this.specialty, this.price, this.assessment];
+    console.log(data)
+    // Sql query with data
+
+
+    this.popover.dismiss();
   }
 }
