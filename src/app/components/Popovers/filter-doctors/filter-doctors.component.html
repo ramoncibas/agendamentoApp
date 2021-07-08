@@ -14,10 +14,10 @@
     </ion-label>
     <ion-select 
       ngDefaultControl
-      [(ngModel)]="specialty" 
+      [(ngModel)]="specialty"
       (ionChange)="changeSpecialty($event)"
     >
-      <ion-select-option *ngFor="let item of data" [value]="item">{{item}}</ion-select-option>
+      <ion-select-option *ngFor="let item of data" [value]="item.value">{{item.name}}</ion-select-option>
     </ion-select>
 
 
@@ -52,7 +52,7 @@
 
       <ion-chip *ngIf="price">
         <ion-icon name="cash"></ion-icon>
-        <ion-label>{{price}}</ion-label>
+        <ion-label>{{price[0] +' a '+ price[1]}}</ion-label>
         <ion-icon name="close"></ion-icon>
       </ion-chip>
     </ion-label>
@@ -62,12 +62,17 @@
 
   </ion-item>
 
-  <ion-buttons>
-    <ion-button (click)="onClick()" color="danger">
+  <ion-item>
+    <ion-label>Dia da consulta</ion-label>
+    <ion-datetime display-format="DD.MM.YYYY" display-timezone="utc"></ion-datetime>
+  </ion-item>
+
+  <ion-buttons class="ion-justify-content-center">
+    <ion-button (click)="closePopover()" color="danger">
       Cancelar
     </ion-button>
 
-    <ion-button (click)="onClick()" color="success">
+    <ion-button (click)="setFilter()" color="success">
       Confirmar
     </ion-button>
   </ion-buttons>
