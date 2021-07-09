@@ -23,8 +23,8 @@
       
       <ion-item>
         <ion-label>Especialidade:</ion-label>
-        <ion-select multiple="false">
-          <ion-select-option *ngFor="let item of data.specialty" [value]="item.specialty">{{ item.specialty }}</ion-select-option>
+        <ion-select ngDefaultControl [(ngModel)]="item">          
+          <ion-select-option *ngFor="let item of data.specialty" [value]="item">{{ item }}</ion-select-option>
         </ion-select>
       </ion-item>
       
