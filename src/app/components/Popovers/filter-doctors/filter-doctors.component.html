@@ -15,7 +15,7 @@
     <ion-select 
       ngDefaultControl
       [(ngModel)]="specialty"
-      (ionChange)="changeSpecialty($event)"
+      (ionChange)="setSpecialty($event)"
     >
       <ion-select-option *ngFor="let item of data" [value]="item.value">{{item.name}}</ion-select-option>
     </ion-select>
@@ -37,7 +37,7 @@
         color="dark"
         ngDefaultControl
         [(ngModel)]="assessment"
-        (ionChange)="changeAssessment($event)"
+        (ionChange)="setAssessment($event)"
       >
         <ion-label slot="start">1</ion-label>
         <ion-label slot="end">5</ion-label>
@@ -56,7 +56,12 @@
         <ion-icon name="close"></ion-icon>
       </ion-chip>
     </ion-label>
-    <ion-select ngDefaultControl [(ngModel)]="price" (ionChange)="changePrice($event)" multiple="true">
+    <ion-select 
+      ngDefaultControl 
+      [(ngModel)]="price" 
+      (ionChange)="setPrice($event)" 
+      multiple="true"
+    >
       <ion-select-option *ngFor="let item of dataPrice" [value]="item">{{item}}</ion-select-option>
     </ion-select>
 
@@ -64,7 +69,14 @@
 
   <ion-item>
     <ion-label>Dia da consulta</ion-label>
-    <ion-datetime display-format="DD.MM.YYYY" display-timezone="utc"></ion-datetime>
+    <ion-datetime 
+      ngDefaultControl 
+      [(ngModel)]="date"
+      (ionChange)="setDate($event)"
+      display-format="DD/MM/YYYY"
+      display-timezone="utc"
+      min="2021" max="2021"
+    ></ion-datetime>
   </ion-item>
 
   <ion-buttons class="ion-justify-content-center">
