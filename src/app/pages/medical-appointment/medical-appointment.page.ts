@@ -18,8 +18,15 @@ import { FilterDoctorsComponent } from '../../components/Popovers/filter-doctors
 })
 
 @NgModule({
-  imports: [CommonModule, FormsModule, BrowserModule],
-  declarations: [FilterDoctorsComponent]
+  imports: [
+    CommonModule, 
+    FormsModule, 
+    BrowserModule
+  ],
+  declarations: [
+    FilterDoctorsComponent, 
+    ModalMedicalAppointmentPage
+  ]
 })
 
 export class MedicalAppointmentPage implements OnInit {  
@@ -43,7 +50,7 @@ export class MedicalAppointmentPage implements OnInit {
     },
     {
       name: 'Dr. Tanga',
-      specialty: 'Clinico Geral',
+      specialty: ['Clinico Geral'],
       picture:
         'https://images.unsplash.com/photo-1543486958-d783bfbf7f8e?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Mnx8c2VsZmllfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=60',
       description: 'Consulta de rotina.',
@@ -52,7 +59,7 @@ export class MedicalAppointmentPage implements OnInit {
     },
     {
       name: 'Dr. Silva',
-      specialty: 'Clinico Geral',
+      specialty: ['Pediatra'],
       picture:
         'https://images.unsplash.com/photo-1543486958-d783bfbf7f8e?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Mnx8c2VsZmllfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=60',
       description: 'Consulta de rotina.',
@@ -61,7 +68,7 @@ export class MedicalAppointmentPage implements OnInit {
     },
     {
       name: 'Dr. Mauricio',
-      specialty: 'Clinico Geral',
+      specialty: ['Cirurgião'],
       picture:
         'https://images.unsplash.com/photo-1543486958-d783bfbf7f8e?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Mnx8c2VsZmllfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=60',
       description: 'Consulta de rotina.',
@@ -122,9 +129,9 @@ export class MedicalAppointmentPage implements OnInit {
       translucent: true
     });
     await popover.present();
-
-    const { role } = await popover.onDidDismiss();
-    console.log('onDidDismiss resolved with role', role);
+    
+    const { data } = await popover.onDidDismiss();
+    console.log(data)
   }
 
   loadData(event) {
