@@ -10,11 +10,13 @@ import { Specialty, Price } from './filter-list';
 })
 
 export class FilterDoctorsComponent implements OnInit {
-  public specialty;
-  public price;
-  public assessment;
-  public data = Specialty;
-  public dataPrice = Price;
+  private specialty: any;
+  private price: any;
+  private assessment: any;
+  private date: any;
+  private data = Specialty;
+  private dataPrice = Price;
+  
   constructor(
     private popover: PopoverController
   ) { }
@@ -23,22 +25,24 @@ export class FilterDoctorsComponent implements OnInit {
 
   closePopover() {
     this.popover.dismiss();
+    console.log(this.date)
   }
 
   // Select the specialty of doctor
-  changeSpecialty(event) {
+  setSpecialty(event) {
     let data = event.target.value;
+    console.log(data)
     this.specialty = data;
   }
 
   // Select the assessments of doctor
-  async changeAssessment(event) {
+  setAssessment(event) {
     let data = event.target.value;
     this.assessment = data;
   }
 
   // Select the price of appointment
-  changePrice(event) {
+  setPrice(event) {
     let data = event.target.value;
     if (data.length <= 1) {
       this.price = data;
@@ -48,12 +52,21 @@ export class FilterDoctorsComponent implements OnInit {
     }
   }
 
-  async setFilter() {
-    const data = [this.specialty, this.price, this.assessment];
+  setDate(event){
+    let data = event.target.value;
+    this.date = data;
+  }
+
+  setFilter() {
+    const data = {
+      specialty: this.specialty != undefined && this.specialty,
+      assessment: this.assessment != undefined && !isNaN(this.assessment) && this.assessment,
+      price: this.price != undefined && this.price,
+      date: this.date != undefined && this.date
+    };    
+    
+    this.popover.dismiss(data);
+
     console.log(data)
-    // Sql query with data
-
-
-    this.popover.dismiss();
   }
 }
