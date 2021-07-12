@@ -2,11 +2,11 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 
 @Component({
-  selector: 'app-modal-appointment',
-  templateUrl: './modal-appointment.page.html',
-  styleUrls: ['./modal-appointment.page.scss'],
+  selector: 'app-modal-my-health',
+  templateUrl: './modal-my-health.page.html',
+  styleUrls: ['./modal-my-health.page.scss'],
 })
-export class MyAppointmentModalPage implements OnInit {
+export class ModalMyHealthPage implements OnInit {
   // Fake data  
   @Input() data: any;
   @Input() type: any;
