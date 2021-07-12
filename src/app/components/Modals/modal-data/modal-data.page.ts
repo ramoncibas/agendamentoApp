@@ -2,14 +2,12 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 
 @Component({
-  selector: 'app-modal-medical-appointment',
-  templateUrl: './modal-medical-appointment.page.html',
-  styleUrls: ['./modal-medical-appointment.page.scss'],
+  selector: 'app-modal-data',
+  templateUrl: './modal-data.page.html',
+  styleUrls: ['./modal-data.page.scss'],
 })
 
-export class ModalMedicalAppointmentPage implements OnInit {
-
-  // Passando valores para o Modal from another Page.
+export class ModalDataPage implements OnInit {
   @Input() data: any;  
   constructor(private modalControll: ModalController) { }
 
@@ -26,6 +24,10 @@ export class ModalMedicalAppointmentPage implements OnInit {
   }
 
   async mkAppointment(data) {
+    console.log(data)
+  }
+
+  buyPill(data) {
     console.log(data)
   }
 }
