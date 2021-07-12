@@ -25,29 +25,6 @@
 
   <ion-item>
     <ion-label>
-      <h4>Avaliação</h4>
-
-      <ion-range
-        pin="true"
-        min="1"
-        max="5"
-        step="1"
-        snaps="true"
-        class="assessment"
-        color="dark"
-        ngDefaultControl
-        [(ngModel)]="assessment"
-        (ionChange)="setAssessment($event)"
-      >
-        <ion-label slot="start">1</ion-label>
-        <ion-label slot="end">5</ion-label>
-      </ion-range>
-    </ion-label>
-
-  </ion-item>
-
-  <ion-item>
-    <ion-label>
       <h4>Valor da consulta</h4>
 
       <ion-chip *ngIf="price">
