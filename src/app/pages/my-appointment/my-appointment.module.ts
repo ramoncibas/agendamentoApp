@@ -7,7 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { MyAppointmentPageRoutingModule } from './my-appointment-routing.module';
 
 import { MyAppointmentPage } from './my-appointment.page';
-import { MyAppointmentModalPage } from '../../components/Modals/modal-appointment/modal-appointment.page';
+import { ModalMyHealthPage } from '../../components/Modals/modal-my-health/modal-my-health.page';
 
 @NgModule({
   imports: [
@@ -16,6 +16,6 @@ import { MyAppointmentModalPage } from '../../components/Modals/modal-appointmen
     IonicModule,
     MyAppointmentPageRoutingModule
   ],
-  declarations: [MyAppointmentPage, MyAppointmentModalPage]
+  declarations: [MyAppointmentPage, ModalMyHealthPage]
 })
 export class MyAppointmentPageModule {}

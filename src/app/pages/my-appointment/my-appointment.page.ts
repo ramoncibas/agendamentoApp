@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
-import { MyAppointmentModalPage } from '../../components/Modals/modal-appointment/modal-appointment.page';
+import { ModalMyHealthPage } from 'src/app/components/Modals/MyHealth/modal-my-health.page';
 
 @Component({
   selector: 'app-my-appointment',
@@ -23,12 +23,27 @@ export class MyAppointmentPage implements OnInit {
           description: 'Quantidade: 12mg',
           dayAt: `Cadastrado: ${new Date()}`,
         },
+        {
+          about: 'Medicalmento: Paracetamol 12mg',
+          description: 'Quantidade: 12mg',
+          dayAt: `Cadastrado: ${new Date()}`,
+        },
+        {
+          about: 'Medicalmento: Paracetamol 12mg',
+          description: 'Quantidade: 12mg',
+          dayAt: `Cadastrado: ${new Date()}`,
+        },
+        {
+          about: 'Medicalmento: Paracetamol 12mg',
+          description: 'Quantidade: 12mg',
+          dayAt: `Cadastrado: ${new Date()}`,
+        },
       ];
       this.presentModal(data, type);
 
     } else if (e == 'vaccine') {
       console.log(e);
-      const type = "Meus Vacinas";
+      const type = "Minhas Vacinas";
       const data = [
         {
           about: 'Vacinando contra: Covid-19',
@@ -68,7 +83,7 @@ export class MyAppointmentPage implements OnInit {
   async presentModal(data:object, type:string) {
     console.log(data);
     const modal = await this.modalControll.create({
-      component: MyAppointmentModalPage,
+      component: ModalMyHealthPage,
       cssClass: 'my-custom-class',
       swipeToClose: true,
       componentProps: {
