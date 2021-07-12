@@ -1,9 +1,15 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>pills</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
+  <div class="pills-background">
+    <ion-button [routerLink]="['/home']" fill="clear">
+      <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+    </ion-button>
+
+    <div class="pills">
+      <img src="/assets/img/pills.png">
+      <h4>Medicamentos</h4>
+    </div>
+  </div>
+  
+  <app-list-items [data]="pills"></app-list-items>
 
 </ion-content>
