@@ -7,7 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { PillsPageRoutingModule } from './pills-routing.module';
 
 import { PillsPage } from './pills.page';
-import { ListItemsComponent } from 'src/app/components/ListItems/list-items.component';
+import { ListItemsComponent } from 'src/app/components/list-items/list-items.component';
 
 @NgModule({
   imports: [

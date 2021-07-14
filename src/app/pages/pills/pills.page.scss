@@ -6,11 +6,26 @@
 
   background: linear-gradient(to right, #144daa, var(--ion-color-primary));
 
-  ion-button {
+  ion-button.backbtn {
     position: absolute;
     top: 10px;
     left: 0;
     color: #fff;
+  }
+  
+  ion-toolbar {
+    border-radius: 10px 10px 0 0;
+    
+    ion-searchbar.ios {
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+
+    & ion-button {
+      & ion-icon.dark {
+        color: #333;
+      }
+    }
   }
 
   .pills {
