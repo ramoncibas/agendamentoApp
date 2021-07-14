@@ -16,9 +16,9 @@ export class MyProfilePage implements OnInit {
 
   ngOnInit() {}
 
-  async loggoutBtn() {
+  async logout() {
     try {
-      await this.authServices.loggout();
+      await this.authServices.logout();
       this.navgation.navigateForward("/login")
     } catch (err) {
       console.log(err)

@@ -5,16 +5,13 @@
     </ion-button>
 
     <div class="profile-info">
-      <img [src]="userProfile.img">
-      <h4>{{ userProfile.email }}</h4>
+      <img src="../../../assets/img/avatar.png" />
     </div>
   </div>
 
   <div class="container">
-    <ion-list class="appointments">
-      
-      
-      <ion-button (click)="loggoutBtn()" expand="block" fill="clear">
+    <ion-list class="appointments">            
+      <ion-button (click)="logout()" expand="block" fill="clear">
         Log Out
       </ion-button>
     </ion-list>
