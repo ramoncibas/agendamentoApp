@@ -1,13 +1,4 @@
-<div class="container">
-  <ion-toolbar>
-    <ion-searchbar placeholder="Buscar por Medicamentos" [disabled]="data.length ? false : true"
-      (ionInput)="searchByName($event)" [debounce]="250" showCancelButton="focus"></ion-searchbar>
-
-    <ion-button [disabled]="data.length ? false : true" (click)="filterData()" slot="end" fill="clear">
-      <ion-icon slot="icon-only" name="filter"></ion-icon>
-    </ion-button>
-  </ion-toolbar>
-
+<div class="container">  
   <ion-list *ngIf="data.length" class="ion-no-padding">
     <ion-item *ngFor="let item of data" (click)="presentModal(item)" lines="none">
 
@@ -51,7 +42,7 @@
     </ion-item>
   </ion-list>
 
-  <ion-infinite-scroll position="bottom" (ionInfinite)="loadData($event)">
+  <ion-infinite-scroll (ionInfinite)="loadData($event)">
     <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Buscando mais...">
     </ion-infinite-scroll-content>
   </ion-infinite-scroll>

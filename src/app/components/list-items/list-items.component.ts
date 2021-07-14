@@ -4,8 +4,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { ModalController, PopoverController, IonInfiniteScroll } from '@ionic/angular';
 
-import { ModalDataPage } from "../Modals/ModalData/modal-data.page"
-import { FilterDoctorsComponent } from '../Popovers/FilterDoctors/filter-doctors.component';
+import { ModalDataPage } from '../Modals/modal-data/modal-data.page';
+import { FilterDoctorsComponent } from '../Popovers/filter-doctors/filter-doctors.component';
 
 @Component({
   selector: 'app-list-items',
@@ -24,39 +24,11 @@ export class ListItemsComponent implements OnInit {
   @Input() data: any;
 
   constructor(
-    public modalControll: ModalController,
-    public popoverController: PopoverController
+    private modalControll: ModalController,
+    private popoverController: PopoverController
   ) { }
 
-  ngOnInit() {}
-
-  // Filter by name
-  searchByName(event:any) {
-    const query = event.target.value.toLowerCase();
-    const items = Array.from(document.querySelector("ion-list").children as HTMLCollectionOf<HTMLElement>);
-    
-    requestAnimationFrame(() => {
-      items.forEach(item => {
-        console.log(item.textContent)
-        const shouldShow = item.textContent.toLowerCase().indexOf(query) > -1;
-        item.style.display = shouldShow ? 'block' : 'none';
-      });
-    });
-  }
-
-  // Filter
-  async filterData(ev: any) {
-    const popover = await this.popoverController.create({
-      component: FilterDoctorsComponent,
-      cssClass: 'my-custom-class',
-      event: ev,
-      translucent: true,
-    });
-    await popover.present();
-
-    const { data } = await popover.onDidDismiss();
-    console.log(data);
-  }
+  ngOnInit() {}  
 
   // Show Modal with options (make-appointment and show time of doctor)
   async presentModal(data) {
