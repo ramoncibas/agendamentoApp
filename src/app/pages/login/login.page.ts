@@ -23,7 +23,7 @@ export class LoginPage implements OnInit {
     private loadingControll: LoadingController,
     private toastControll: ToastController,
     private authServices: AuthService
-    
+
   ) { }
 
   ngOnInit() { }
@@ -39,27 +39,27 @@ export class LoginPage implements OnInit {
   }
 
   // Logando usuario
-  async login() {
+  async signIn() {
     await this.presentLoading();
 
     try {
-      await this.authServices.login(this.userLogin);
-    } catch(error) {
+      await this.authServices.signIn(this.userLogin);
+    } catch (error) {
       // Pegando erro
       let message: string;
       switch (error.code) {
         case 'auth/invalid-email':
-        message = 'E-mail ou Senha incorreto!'
-        break;
+          message = 'E-mail ou Senha incorreto!'
+          break;
 
         case 'auth/wrong-password':
-        message = 'E-mail ou Senha incorreto!'        
-        break;
-        
+          message = 'E-mail ou Senha incorreto!'
+          break;
+
         case 'auth/user-not-found':
-        message = 'Usuario não encontrado!'
-        break;
-      
+          message = 'Usuario não encontrado!'
+          break;
+
         default:
           break;
       }
@@ -72,32 +72,32 @@ export class LoginPage implements OnInit {
   }
 
   // Registrando um usuario
-  async register() {
+  async signUp() {
     await this.presentLoading();
-    
+
     try {
       // Ele retorna o usuario autenticado
-      await this.authServices.register(this.userRegister);
-    } catch(error) {
+      await this.authServices.signUp(this.userRegister);
+    } catch (error) {
       // Tratando erros
       let message: string;
       switch (error.code) {
         case 'auth/invalid-email':
-        message = 'Esse e-mail é inválido! '        
-        break;
-        
+          message = 'Esse e-mail é inválido! '
+          break;
+
         case 'auth/email-already-in-use':
-        message = 'Esse e-mail ja foi utilizado!'
-        break;
+          message = 'Esse e-mail ja foi utilizado!'
+          break;
 
         case 'auth/weak-password':
-        message = 'Sua senha deve ter no minimo 6 caracteres!'
-        break;
+          message = 'Sua senha deve ter no minimo 6 caracteres!'
+          break;
 
         case 'auth/argument-error':
-        message = 'Preencha os campos acima!'
-        break;
-      
+          message = 'Preencha os campos acima!'
+          break;
+
         default:
           break;
       }
@@ -106,7 +106,7 @@ export class LoginPage implements OnInit {
     } finally {
       // Esconder o loading
       this.loading.dismiss();
-    }    
+    }
   }
 
   // Loading popup
