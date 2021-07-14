@@ -7,7 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { MedicalAppointmentPageRoutingModule } from './medical-appointment-routing.module';
 
 import { MedicalAppointmentPage } from './medical-appointment.page';
-import { ListItemsComponent } from 'src/app/components/ListItems/list-items.component';
+import { ListItemsComponent } from 'src/app/components/list-items/list-items.component';
 
 @NgModule({
   imports: [    

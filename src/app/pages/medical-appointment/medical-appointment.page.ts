@@ -3,11 +3,14 @@ import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 
-import { Subscription } from 'rxjs';
-import { Appointment } from 'src/app/interfaces/appointment';
-import { AppointmentService } from 'src/app/services/appointment.service';
+import { PopoverController } from '@ionic/angular';
 
-import { ListItemsComponent } from '../../components/ListItems/list-items.component';
+// import { Subscription } from 'rxjs';
+// import { Appointment } from 'src/app/interfaces/appointment';
+// import { AppointmentService } from 'src/app/services/auth/appointment.service';
+
+import { ListItemsComponent } from '../../components/list-items/list-items.component';
+import { FilterDoctorsComponent } from 'src/app/components/Popovers/filter-doctors/filter-doctors.component';
 
 @Component({
   selector: 'app-medical-appointment',
@@ -24,7 +27,9 @@ import { ListItemsComponent } from '../../components/ListItems/list-items.compon
 })
 export class MedicalAppointmentPage implements OnInit {
 
-  constructor() {}
+  constructor(
+    public popoverController: PopoverController
+  ) {}
 
   // Fake data
   private appointments = [
@@ -83,4 +88,31 @@ export class MedicalAppointmentPage implements OnInit {
   // }
 
   //appointments:Array<Appointment>  
+  // Filter by name
+  searchByName(event:any) {
+    const query = event.target.value.toLowerCase();
+    const items = Array.from(document.querySelector("ion-list").children as HTMLCollectionOf<HTMLElement>);
+    
+    requestAnimationFrame(() => {
+      items.forEach(item => {
+        console.log(item.textContent)
+        const shouldShow = item.textContent.toLowerCase().indexOf(query) > -1;
+        item.style.display = shouldShow ? 'block' : 'none';
+      });
+    });
+  }
+
+  // Filter
+  async filterData(ev: any) {
+    const popover = await this.popoverController.create({
+      component: FilterDoctorsComponent,
+      cssClass: 'my-custom-class',
+      event: ev,
+      translucent: true,
+    });
+    await popover.present();
+
+    const { data } = await popover.onDidDismiss();
+    console.log(data);
+  }
 }
