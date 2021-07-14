@@ -11,8 +11,7 @@ import { Specialty, Price } from './filter-list';
 
 export class FilterDoctorsComponent implements OnInit {
   private specialty: any;
-  private price: any;
-  private assessment: any;
+  private price: any;  
   private date: any;
   private data = Specialty;
   private dataPrice = Price;
@@ -35,12 +34,6 @@ export class FilterDoctorsComponent implements OnInit {
     this.specialty = data;
   }
 
-  // Select the assessments of doctor
-  setAssessment(event) {
-    let data = event.target.value;
-    this.assessment = data;
-  }
-
   // Select the price of appointment
   setPrice(event) {
     let data = event.target.value;
@@ -59,14 +52,11 @@ export class FilterDoctorsComponent implements OnInit {
 
   setFilter() {
     const data = {
-      specialty: this.specialty != undefined && this.specialty,
-      assessment: this.assessment != undefined && !isNaN(this.assessment) && this.assessment,
+      specialty: this.specialty != undefined && this.specialty,      
       price: this.price != undefined && this.price,
       date: this.date != undefined && this.date
     };    
     
     this.popover.dismiss(data);
-
-    console.log(data)
   }
 }
