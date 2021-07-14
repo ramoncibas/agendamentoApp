@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
-import { ModalMyHealthPage } from 'src/app/components/Modals/MyHealth/modal-my-health.page';
+import { ModalMyHealthPage } from 'src/app/components/Modals/modal-my-health/modal-my-health.page';
 
 @Component({
   selector: 'app-my-appointment',
