@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection, } from '@angular/fire/firestore';
-import { Appointment } from '../interfaces/appointment';
+import { Appointment } from '../../interfaces/appointment';
 import { map } from 'rxjs/operators'
 
 @Injectable({
